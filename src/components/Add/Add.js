@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './Add.css';
 
@@ -76,6 +77,14 @@ class Add extends React.Component {
             </div>
         );
     }
+}
+
+Add.propTypes = {
+    addNewPerson: PropTypes.func,
+}
+
+Add.defaultProps = {
+    addNewPerson: ()=>{},
 }
 
 export default Add;
