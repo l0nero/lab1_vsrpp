@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import './Add.css';
+import { addUser } from '../../redux/actions';
+import { connect } from 'react-redux';
 
 
 class Add extends React.Component {
@@ -87,4 +89,10 @@ Add.defaultProps = {
     addNewPerson: ()=>{},
 }
 
-export default Add;
+const mapDispatchToProps = (dispatch) => {
+    return{
+        addNewPerson: (firstName, lastName, email) => dispatch(addUser(firstName, lastName, email))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Add);

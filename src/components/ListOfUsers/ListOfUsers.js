@@ -2,9 +2,16 @@ import React from 'react';
 
 import './ListOfUsers.css';
 import SingleUser from '../SingleUser/SingleUser';
+import { connect } from 'react-redux';
+import { deletePerson } from '../../redux/actions';
 
-const ListOfUsers = ({ data, onDelete }) => {
 
+class ListOfUsers extends React.Component {
+
+
+    render(){
+        const {data, onDelete} = this.props;
+        
     let elements = data.map((item) => {
         const { id, firstName, lastName, email } = item;
 
@@ -35,7 +42,25 @@ const ListOfUsers = ({ data, onDelete }) => {
             </table>
         </div>
     )
+}}
+    
+
+
+
+
+
+
+const mapStateToProps = (state) => {
+    return {
+      data: state
+    }
+  }
+const mapDispatchToProps = (dispatch) => {
+    return{
+        onDelete: (id) => dispatch(deletePerson(id))
+    }
+    
 }
 
-export default ListOfUsers;
+export default connect(mapStateToProps, mapDispatchToProps)(ListOfUsers);
 
