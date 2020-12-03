@@ -1,8 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import Add from '../../components/Add/Add';
 import ListOfUsers from '../../components/ListOfUsers/ListOfUsers';
-import { deletePerson } from '../../redux/actions';
+import CustomPaginationActionsTable from '../../components/rgrComponent/rgrComponent';
 
 
 class UsersPage extends React.Component {
@@ -12,6 +11,7 @@ class UsersPage extends React.Component {
             <div>
                 <Add />
                 <ListOfUsers  />
+                <CustomPaginationActionsTable/>
             </div>
         )
     }

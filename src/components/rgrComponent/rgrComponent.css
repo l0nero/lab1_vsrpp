@@ -1,0 +1,7 @@
+.root{
+  flex-shrink: 0;
+}
+
+.table{
+  min-width:500px;
+}
